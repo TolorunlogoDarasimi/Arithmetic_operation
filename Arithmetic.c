@@ -37,6 +37,10 @@ int main()
     printf("4. Division\n");
     printf("Choose the operation to perform: ");
     scanf("%d", &choice);
+    if(choice < 1 || choice > 4){
+        printf("Invalid! Wrong choice");
+        return 1;
+    }
 
     printf("Enter the first number: ");
     scanf("%lf", &num1);
@@ -56,7 +60,7 @@ int main()
         result = divide(num1, num2);
         printf("Result: %.2lf\n", result);
     }else{
-        printf("Invalid choice");
+        printf("Invalid! Wrong choice");
         return 1;
     }
     return 0;
