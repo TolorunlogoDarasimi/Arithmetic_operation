@@ -2,17 +2,17 @@
 
 double add(double a, double b)
 {
-    return a += b;
+    return a + b;
 }
 
 double multiply(double a, double b)
 {
-    return a *= b;
+    return a * b;
 }
 
 double subtract(double a, double b)
 {
-    return a -= b;
+    return a - b;
 }
 
 double divide(double a, double b)
@@ -21,7 +21,28 @@ double divide(double a, double b)
         printf("Error! Division by zero\n");
         return 0;
     }else{
-        return a /= b;
+        return a / b;
+    }
+
+}
+
+double power(double a, double b)
+{
+    double exp = 1;
+    for(int i = 0; i < b; i++){
+        exp *= a;
+    }
+    return exp;
+}
+
+double modulus(double a, double b)
+{
+    if(b == 0){
+        printf("Error! Division by zero\n");
+        return 0;
+    }else{
+        long q = (long)(a/b);
+        return a -(double)(q * b);
     }
 
 }
@@ -35,9 +56,11 @@ int main()
     printf("2. Subtraction\n");
     printf("3. Multiplication\n");
     printf("4. Division\n");
+    printf("5. Exponential\n");
+    printf("6. Modulus\n");
     printf("Choose the operation to perform: ");
     scanf("%d", &choice);
-    if(choice < 1 || choice > 4){
+    if(choice < 1 || choice > 6){
         printf("Invalid! Wrong choice");
         return 1;
     }
@@ -59,6 +82,12 @@ int main()
     }else if(choice == 4){
         result = divide(num1, num2);
         printf("Result: %.2lf\n", result);
+    }else if(choice == 5){
+        result = power(num1, num2);
+        printf("Result: %.1lf\n", result);
+    }else if(choice == 6){
+        result = modulus(num1, num2);
+        printf("Result: %.1lf\n", result);
     }else{
         printf("Invalid! Wrong choice");
         return 1;
